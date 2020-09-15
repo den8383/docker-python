@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  python:
+    container_name: python
+    build: ./docker/python
+    volumes:
+    - ./src:/var/www
+    ports:
+      - "8000:8000"
+        #working_dir: /usr/src/app
+    
+    network_mode: "host"
+    environment:
+      - DISPLAY=${DISPLAY}
+    stdin_open: true
+    tty: true
+
